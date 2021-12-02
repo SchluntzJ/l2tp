@@ -336,6 +336,8 @@ version 2.0
 
 config setup
     protostack=netkey
+    nat_traversal=yes
+    oe=off
     nhelpers=0
     uniqueids=no
     interfaces=%defaultroute
@@ -348,8 +350,8 @@ conn l2tp-psk
 
 conn l2tp-psk-nonat
     authby=secret                                     //加密认证
-        ike=3des-sha1;modp1024                        //算法
-        phase2alg=aes256-sha1;modp2048                //算法
+    ike=aes128-sha128                       //算法
+    phase2alg=aes128-sha256                //算法
     pfs=no
     auto=add
     keyingtries=3
