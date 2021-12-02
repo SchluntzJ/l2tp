@@ -342,11 +342,14 @@ config setup
     virtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12,%v4:!${iprange}.0/24
 
 conn l2tp-psk
-    rightsubnet=vhost:%priv
+    rightsubnet=vhost:%priv                           //允许建立专用网络，参考主配置文件中private内容
+    forceencaps=yes                                   //oSwan官方Bug 2.6.4后修复
     also=l2tp-psk-nonat
 
 conn l2tp-psk-nonat
-    authby=secret
+    authby=secret                                     //加密认证
+        ike=3des-sha1;modp1024                        //算法
+        phase2alg=aes256-sha1;modp2048                //算法
     pfs=no
     auto=add
     keyingtries=3
@@ -354,15 +357,15 @@ conn l2tp-psk-nonat
     ikelifetime=8h
     keylife=1h
     type=transport
-    left=%defaultroute
+    left=%defaultroute                               //外网ip
     leftid=${IP}
     leftprotoport=17/1701
-    right=%any
+    right=%any                                       //客户端限制
     rightprotoport=17/%any
     dpddelay=40
     dpdtimeout=130
     dpdaction=clear
-    sha2-truncbug=no
+    sha2-truncbug=no                                 //ios12+
 EOF
 
     cat > /etc/ipsec.secrets<<EOF
