@@ -5,7 +5,7 @@ export PATH
 #   System Supported:  CentOS 6+ / Debian 7+ / Ubuntu 12+               #
 #   Description: L2TP VPN Auto Installer                                #
 #   Author: SchluntzJ <it@yidism.com>                                   #
-#   Intro:  https://backup.yidism.com/l2tp.html                               #
+#   Intro:  https://backup.yidism.com/l2tp.html                         #
 #=======================================================================#
 cur_dir=`pwd`
 
@@ -227,12 +227,12 @@ preinstall_l2tp(){
     [ -z ${iprange} ] && iprange="192.168.18"
 
     echo "Please enter PSK:"
-    read -p "(Default PSK: yidism.com):" mypsk
-    [ -z ${mypsk} ] && mypsk="yidism.com"
+    read -p "(Default PSK: 999999999):" mypsk
+    [ -z ${mypsk} ] && mypsk="999999999"
 
     echo "Please enter Username:"
-    read -p "(Default Username: jhow):" username
-    [ -z ${username} ] && username="jhow"
+    read -p "(Default Username: SchluntzJ):" username
+    [ -z ${username} ] && username="SchluntzJ"
 
     password=`rand`
     echo "Please enter ${username}'s password:"
@@ -654,7 +654,7 @@ finally(){
     echo "###############################################################"
     echo "# L2TP VPN Auto Installer                                     #"
     echo "# System Supported: CentOS 6+ / Debian 7+ / Ubuntu 12+        #"
-    echo "# Intro: https://backup.yidism.com/l2tp.html                        #"
+    echo "# Intro: https://backup.yidism.com/l2tp.html                  #"
     echo "# Author: SchluntzJ <it@yidism.com>                           #"
     echo "###############################################################"
     echo "If there is no [FAILED] above, you can connect to your L2TP "
@@ -683,7 +683,7 @@ l2tp(){
     echo "###############################################################"
     echo "# L2TP VPN Auto Installer                                     #"
     echo "# System Supported: CentOS 6+ / Debian 7+ / Ubuntu 12+        #"
-    echo "# Intro: https://backup.yidism.com/l2tp.html                        #"
+    echo "# Intro: https://backup.yidism.com/l2tp.html                  #"
     echo "# Author: SchluntzJ <it@yidism.com>                           #"
     echo "###############################################################"
     echo
